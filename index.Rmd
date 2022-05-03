@@ -116,6 +116,7 @@ library(rpart.plot, quietly=TRUE)
 library(randomForest, quietly=TRUE)
 
 # For Boosting
+library(Ckmeans.1d.dp, quietly=TRUE)
 library(xgboost, quietly=TRUE)
 library(DiagrammeR, quietly=TRUE)
 library(DiagrammeRsvg, quietly=TRUE)
@@ -1926,5 +1927,36 @@ post](https://dominiquemakowski.github.io/post/2021-02-10-template_results/)
 -   R-bloggers' [blog](https://www.r-bloggers.com/2019/10/explaining-predictions-boosted-trees-post-hoc-analysis-xgboost/) titled "Explaining Predictions: Boosted Trees Post-hoc Analysis (Xgboost)"
 
 ```{r warning=FALSE, message=TRUE, results='asis'}
-report::cite_packages(sessionInfo())
+get_citation <- function(package_name) {
+  transform_name <- package_name %>% 
+    citation() %>% 
+    format(style="text")
+  return(transform_name[1])
+} 
+
+packages <- c("base","randomForest", "vip", "ggplot2",
+              "rmarkdown", "report", "sp", "ROCR",
+              "dbarts", "tidyverse", "knitr", "ConfusionTableR",
+              "data.table", "DiagrammeR", "DiagrammeRsvg", "dials",
+              "dismo", "doParallel", "dplyr", "embarcadero",
+              "forcats", "foreach", "ggpubr", "htmltools",
+              "ISLR2", "iterators", "magrittr", "matrixStats",
+              "Metrics", "parsnip", "parttree", "patchwork",
+              "purrr", "raster", "reactable", "readr",
+              "recipes", "rpart", "rpart.plot", "rsample",
+              "rsvg", "scales", "stringr", "styler",
+              "tibble", "tidyr", "tune", "workflows",
+              "xaringanExtra", "xgboost", "yardstick",
+              "Ckmeans.1d.dp")
+
+table <- tibble::tibble(Packages = packages)
+
+table %>%
+  dplyr::mutate(
+    transform_name = purrr::map_chr(.data[["Packages"]],
+                                    get_citation)
+  ) %>% 
+  dplyr::pull(.data[["transform_name"]]) %>% 
+  report::as.report_parameters()
+
 ```
