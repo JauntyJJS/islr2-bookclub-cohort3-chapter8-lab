@@ -1926,6 +1926,8 @@ post](https://dominiquemakowski.github.io/post/2021-02-10-template_results/)
     
 -   R-bloggers' [blog](https://www.r-bloggers.com/2019/10/explaining-predictions-boosted-trees-post-hoc-analysis-xgboost/) titled "Explaining Predictions: Boosted Trees Post-hoc Analysis (Xgboost)"
 
+# Package References
+
 ```{r warning=FALSE, message=TRUE, results='asis'}
 get_citation <- function(package_name) {
   transform_name <- package_name %>% 
