@@ -214,7 +214,7 @@ to create the model.
 The cost complexity is tuned using
 [`tune::tune`](https://hardhat.tidymodels.org/reference/tune.html)
 
-An engine specific parameter `model = TRUE` is set for rpart to prevent this warning message from coming up later when `rpart.plot::rpart.plot` is used later.
+An engine specific parameter `model = TRUE` is set for `rpart` to prevent this warning message from coming up later when `rpart.plot::rpart.plot` is used later.
 
 ```{r}
 #> Warning: Cannot retrieve the data used to build the model (so cannot determine roundint and is.binary for the variables).
@@ -641,7 +641,7 @@ to create the model.
 The cost complexity is tuned using
 [`tune::tune`](https://hardhat.tidymodels.org/reference/tune.html)
 
-An engine specific parameter `model = TRUE` is set for rpart to prevent this warning message from coming up later when `rpart.plot::rpart.plot` is used later.
+An engine specific parameter `model = TRUE` is set for `rpart` to prevent this warning message from coming up later when `rpart.plot::rpart.plot` is used later.
 
 ```{r}
 #> Warning: Cannot retrieve the data used to build the model (so cannot determine roundint and is.binary for the variables).
